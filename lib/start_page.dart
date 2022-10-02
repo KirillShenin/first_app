@@ -1,9 +1,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:first_app/OpenImage.dart';
+import 'package:first_app/open_image.dart';
 
 class StartPage extends StatelessWidget {
+  const StartPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,25 +14,25 @@ class StartPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Галерея',
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.black87, // зеленый цвет текста
                   fontSize: 30),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
               child: Container(
-                margin: EdgeInsets.all(10),
-                padding: EdgeInsets.symmetric(
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 30,
                 ),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white54,
                   borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10),
@@ -49,17 +51,17 @@ class StartPage extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => OpenImage(
-                                imagePath: 'images/${index}.jpg',
-                                data: '${index}'),
+                                imagePath: 'images/$index.jpg',
+                                data: '$index'),
                           ),
                         );
                       },
                       child: Container(
-                        margin: EdgeInsets.all(3),
+                        margin: const EdgeInsets.all(3),
                         height: 100,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('images/${index}.jpg'),
+                            image: AssetImage('images/$index.jpg'),
                             fit: BoxFit.fitWidth,
 
                           ),
@@ -77,12 +79,4 @@ class StartPage extends StatelessWidget {
   }
 }
 
-class Info {
-  final String imagePath;
-  final String data;
 
-  Info({
-    required this.imagePath,
-    required this.data,
-  });
-}
